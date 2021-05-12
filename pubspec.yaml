@@ -1,0 +1,60 @@
+name: task
+description: A new Flutter project.
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^0.22.0
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  flutter_html: ^2.0.0
+  tab_indicator_styler: ^1.0.0
+  scrollable_positioned_list: ^0.1.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/svg/ic_back.svg
+    - assets/svg/ic_clock.svg
+    - assets/svg/ic_comment.svg
+    - assets/svg/ic_eye.svg
+    - assets/svg/ic_like.svg
+    - assets/svg/ic_save.svg
+    - assets/svg/ic_share.svg
+    - assets/images/image.png
+    - assets/svg/comments/ic_comment_like.svg
+    - assets/svg/comments/ic_comment_dislike.svg
+    - assets/svg/comments/ic_more.svg
+
+  fonts:
+    - family: Radiate-Sans
+      fonts:
+        - asset: assets/fonts/Radiate-Sans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Radiate-Sans-Bold.ttf
+          weight: 900
+        - asset: assets/fonts/Radiate-Sans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Radiate-Sans-Semi-Bold.ttf
+          weight: 600
