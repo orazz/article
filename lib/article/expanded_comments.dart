@@ -146,15 +146,19 @@ class ExpandedComments extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 4.0),
                   child: Text("Алёна",
                       style: TextStyle(
+                          fontFamily: "SF Pro Text",
                           fontWeight: FontWeight.bold,
-                          fontSize: isSubComment ? 14 : 16)),
+                          fontSize: isSubComment ? 14 : 15)),
                 ),
                 UIHelper.horizontalSpace(15),
                 Padding(
                   padding: const EdgeInsets.only(top: 4.0),
                   child: Text(
                     "3 ч",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: "SF Pro Text",
+                        fontSize: 13),
                   ),
                 )
               ],
@@ -162,7 +166,10 @@ class ExpandedComments extends StatelessWidget {
           ),
           UIHelper.verticalSpaceSmall(),
           Text(
-              "Если вы видите, что в целом у ребенка все хорошо, он понимает речь, адекватно реагирует на окружающую действительность, то, скорее всего, нет причин для беспокойства."),
+            "Если вы видите, что в целом у ребенка все хорошо, он понимает речь, адекватно реагирует на окружающую действительность, то, скорее всего, нет причин для беспокойства.",
+            style: TextStyle(
+                fontFamily: "SF Pro Text", fontSize: 15, height: 1.28),
+          ),
           UIHelper.verticalSpaceSmall(),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -172,7 +179,10 @@ class ExpandedComments extends StatelessWidget {
                 width: isSubComment ? 80 : 100,
                 child: Text(
                   "Ответить",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "SF Pro Text",
+                      fontSize: 15),
                 ),
               ),
               // ignore: deprecated_member_use

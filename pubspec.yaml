@@ -17,7 +17,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_html: ^2.0.0
   tab_indicator_styler: ^1.0.0
-  scrollable_positioned_list: ^0.1.10
 
 dev_dependencies:
   flutter_test:

@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:task/article/ui_helper.dart';
 import 'package:task/article/white_button.dart';
 
@@ -23,20 +21,11 @@ class _ArticleScreenState extends State<ArticleScreen>
   var top = 0.0;
   double topImageHeight = 400;
   bool commentsCollapsed = false;
-  TabController _tabController;
-  final ItemScrollController itemScrollController = ItemScrollController();
-  final ItemPositionsListener itemPositionsListener =
-      ItemPositionsListener.create();
 
   Size size;
 
   @override
   void initState() {
-    _tabController = TabController(
-      initialIndex: 0,
-      length: 2,
-      vsync: this,
-    );
     super.initState();
   }
 
@@ -64,7 +53,7 @@ class _ArticleScreenState extends State<ArticleScreen>
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
         child: Container(
-          color: Color(0xFFDBE5F2).withOpacity(0.7),
+          color: Color(0xFFDBE5F2).withOpacity(0.3),
           alignment: Alignment.center,
           child: _buildScrollView(),
         ),
@@ -119,17 +108,19 @@ class _ArticleScreenState extends State<ArticleScreen>
         SliverToBoxAdapter(
           child: Container(
             padding: EdgeInsets.all(15.0),
-            child: Html(
-              data: HTML_STRING,
-              customRender: {
-                'iframe': (context, _) {
-                  // print('attributes from iFrame: $attributes');
-                  Widget _widget = Text('iFrame Render Custom Widget');
+            child: Html(data: HTML_STRING, customRender: {
+              'iframe': (context, _) {
+                // print('attributes from iFrame: $attributes');
+                Widget _widget = Text('iFrame Render Custom Widget');
 
-                  return _widget;
-                },
+                return _widget;
               },
-            ),
+            }, style: {
+              "body": Style(
+                  fontFamily: "SF Pro Text",
+                  fontSize: FontSize(17),
+                  lineHeight: LineHeight.em(1.26)),
+            }),
           ),
         ),
         _buildAuthor(),
@@ -152,42 +143,6 @@ class _ArticleScreenState extends State<ArticleScreen>
                       },
                     )),
         ),
-        // SliverToBoxAdapter(
-        //   child: Material(
-        //     child: TabBar(
-        //       controller: _tabController,
-        //       indicatorColor: Colors.green,
-        //       tabs: [
-        //         Tab(
-        //           text: "Home",
-        //         ),
-        //         Tab(
-        //           text: "Work",
-        //         ),
-        //         // Tab(
-        //         //   text: "Play",
-        //         // ),
-        //       ],
-        //       labelColor: Colors.white,
-        //       unselectedLabelColor: Colors.black,
-        //       indicator: RectangularIndicator(
-        //         bottomLeftRadius: 100,
-        //         bottomRightRadius: 100,
-        //         topLeftRadius: 100,
-        //         topRightRadius: 100,
-        //       ),
-        //     ),
-        //   ),
-        // ),
-
-        // SliverToBoxAdapter(
-        //   child: ScrollablePositionedList.builder(
-        //     itemCount: 500,
-        //     itemBuilder: (context, index) => Text('Item $index'),
-        //     itemScrollController: itemScrollController,
-        //     itemPositionsListener: itemPositionsListener,
-        //   ),
-        // ),
         UIHelper.verticalSliverSpaceLarge(),
       ],
     );
@@ -359,7 +314,7 @@ class _ArticleScreenState extends State<ArticleScreen>
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(
               "826 нравится",
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15, fontFamily: 'SF Pro Text'),
             ),
           )
         ],
@@ -426,10 +381,20 @@ class _ArticleScreenState extends State<ArticleScreen>
               color: Colors.black,
             ),
             children: <TextSpan>[
-              new TextSpan(text: 'Автор публикации: '),
               new TextSpan(
-                  text: 'Татьяна Андреева, педагог-психолог',
-                  style: new TextStyle(fontWeight: FontWeight.bold)),
+                  text: 'Автор публикации: ',
+                  style: TextStyle(
+                    fontFamily: 'SF Pro Text',
+                    fontSize: 13,
+                  )),
+              new TextSpan(
+                text: 'Татьяна Андреева, педагог-психолог',
+                style: new TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'SF Pro Text',
+                  fontSize: 13,
+                ),
+              ),
             ],
           ),
         ),
